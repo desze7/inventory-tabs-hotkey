@@ -8,3 +8,7 @@ There is a bit of an unintended consequence to this mod where you can access the
 
 ### **Installation**
 Simply open the downloaded zip file and drag and drop the **_BepInEx_** folder into your game folder.
+
+---
+
+Thanks Jehree for the [client mod template](https://github.com/Jehree/SPTClientModExamples)!
