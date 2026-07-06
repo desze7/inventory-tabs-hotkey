@@ -16,7 +16,7 @@ namespace InventoryTabsHotkey
     {
         private const string PluginGuid = "com.desze.invtabshotkey";
         private const string PluginName = "desze-Inventory Tabs Hotkey";
-        private const string PluginVersion = "1.2.0";
+        private const string PluginVersion = "1.2.1";
 
         private const string TabControllerFieldName = "gclass3808_0";
         private const string TabDictionaryFieldName = "_tabDictionary";
@@ -119,7 +119,7 @@ namespace InventoryTabsHotkey
 
         private void ShiftTab(int direction)
         {
-            if (IsTypingInTextField())
+            if (IsTypingInTextField() || IsHoldingLeftMouseButton())
             {
                 return;
             }
@@ -157,7 +157,7 @@ namespace InventoryTabsHotkey
 
         private void JumpToTab(EInventoryTab tab)
         {
-            if (IsTypingInTextField())
+            if (IsTypingInTextField() || IsHoldingLeftMouseButton())
             {
                 return;
             }
@@ -225,6 +225,11 @@ namespace InventoryTabsHotkey
         {
             GameObject selected = EventSystem.current?.currentSelectedGameObject;
             return selected != null && selected.GetComponent<TMPro.TMP_InputField>() != null;
+        }
+
+        private bool IsHoldingLeftMouseButton()
+        {
+            return Input.GetMouseButton(0);
         }
     }
 }
